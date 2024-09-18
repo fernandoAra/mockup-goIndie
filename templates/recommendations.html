@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>goIndie</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col justify-between min-h-screen">
+  <header class="bg-indigo-600 p-6">
+    <h1 class="text-3xl text-white text-center">Your Indie Artist Recommendations</h1>
+  </header>
+
+  <main class="max-w-6xl mx-auto mt-10">
+    <section class="bg-white p-8 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-bold mb-4">Based on your taste, we recommend:</h2>
+
+      <!-- Grid layout instead of list -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        {% if recommendations %}
+          {% for artist, image, soundcloud_link, relevance, size in recommendations %}
+          <div class="flex flex-col items-center space-y-2">
+            <div class="rounded-lg overflow-hidden" style="width: {{ size }}px; height: {{ size }}px;">
+              <img src="{{ image }}" alt="{{ artist }} Image" class="object-cover w-full h-full">
+            </div>
+            <div class="text-center">
+              <h3 class="text-xl font-semibold">{{ artist }} ({{ relevance }}%)</h3>
+              <a href="{{ soundcloud_link }}" class="text-indigo-600 underline" target="_blank">Go Listen</a>
+            </div>
+          </div>
+          {% endfor %}
+        {% else %}
+          <p class="text-gray-600">No recommendations available. Please try submitting your favorite artists.</p>
+        {% endif %}
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white p-4 text-center">
+    <p>&copy; 2024 goIndie</p>
+  </footer>
+</body>
+</html>

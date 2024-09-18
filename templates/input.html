@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enter Your Favorite Artists</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col justify-between min-h-screen">
+  <header class="bg-indigo-600 p-6">
+    <h1 class="text-3xl text-white text-center">Tell Us Your Favorite Artists</h1>
+  </header>
+
+  <main class="max-w-4xl mx-auto mt-10">
+    <section class="bg-white p-8 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-bold mb-4">Enter your favorite songs or artists</h2>
+      <p class="mb-4 text-gray-600">You can enter multiple artists separated by commas (e.g., Radiohead, Arctic Monkeys, Tame Impala).</p>
+      <form action="/submit" method="POST" class="mb-6">
+        <label for="musicInput" class="block text-lg mb-2">Enter songs or artists:</label>
+        <input type="text" id="musicInput" name="musicInput" class="w-full p-2 border border-gray-300 rounded-lg mb-4" placeholder="e.g., Radiohead, Arctic Monkeys, Tame Impala">
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white p-4 text-center">
+    <p>&copy; 2024 goIndie</p>
+  </footer>
+</body>
+</html>
